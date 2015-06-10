@@ -66,6 +66,7 @@ section {
   position: relative;
   background: url(../img/link-decoration.png) left 9px no-repeat;
   padding-left: 60px;
+
   &:before {
     width: 47px;
     height: 3px;
@@ -88,6 +89,7 @@ section {
   position: relative;
   background: url(../img/link-decoration.png) right 9px no-repeat;
   padding-right: 60px;
+
   &:after {
     width: 47px;
     height: 3px;
@@ -133,7 +135,7 @@ section {
 .grayscale.hover img{
   @include colorDefault();
 }
-// === Modules ===
+// === Modules === 
 
 // === Main styles ===
 // Navigation 
@@ -150,7 +152,7 @@ section {
 
     a {
       background:url(../img/header-logo.png) center center no-repeat;
-      text-indent:-9999px;
+      text-indent:-99999px;
       width: 72px;
       height: 110px;
       display: block;
