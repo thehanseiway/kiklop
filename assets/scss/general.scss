@@ -1,0 +1,42 @@
+// General Font
+$fontFamily: 'Exo', sans-serif, Helvetica, Arial, sans-serif;
+
+// General Colors
+$colorPrimary: #546069;
+$hoverColor: #dbae10;
+$fontColor: #3e3e3e;
+$bgButton: #556169;
+
+// MEDIA QUERIES
+$minLg: 1200px;
+$minMd: 992px;
+$minSm: 768px;
+$maxMd: 1199px;
+$maxSm: 1031px;
+$maxXs: 767px;
+$maxXxs: 539px;
+$maxXxxs: 479px;
+$maxXxxxs: 400px;
+$maxXxxxxs: 359px;
+
+// SOCIAL MEDIA COLOR
+$twitter: #68cdef;
+$linkedin: #008bc3;
+$facebook: #517ebc;
+$behance: #1dade1;
+$mail: #92cadc;
+$google-plus: #d2463b;
+$instagram: #517fa4;
+
+.fL{float: left}
+.fR{float: right}
+.dB{display: block}
+.dT{display: table}
+.dIb{display: inline-block;}
+.mA{margin: auto;}
+.oH{overflow: hidden !important;}
+
+.mt10 {margin-top: 10px;}
+.mb10 {margin-bottom: 10px;}
+.mr10 {margin-right: 10px;}
+.ml10 {margin-left: 10px;}

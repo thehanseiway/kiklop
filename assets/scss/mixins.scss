@@ -1,0 +1,170 @@
+@mixin displayFlex() {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+@mixin alignItems($center) {
+    -webkit-box-align: $center;
+    -moz-box-align: $center;
+    -webkit-align-items: $center;
+    -ms-flex-align: $center;
+    align-items: $center;
+}
+
+@mixin animationVariables($duration, $delay, $loop) {
+    -webkit-animation-duration: $duration;
+    -webkit-animation-delay: $delay;
+    -webkit-animation-iteration-count: $loop;
+
+    -moz-animation-duration: $duration;
+    -moz-animation-delay: $delay;
+    -moz-animation-iteration-count: $loop;
+
+    -ms-animation-duration: $duration;
+    -ms-animation-delay: $delay;
+    -ms-animation-iteration-count: $loop;
+
+    animation-duration: $duration;
+    animation-delay: $delay;
+    animation-iteration-count: $loop;
+}
+
+@mixin transition($property, $duration, $effect: ease-out) {
+    -webkit-transition: $property $duration $effect;
+    -moz-transition: $property $duration $effect;
+    -o-transition: $property $duration $effect;
+    transition: $property $duration $effect;
+}
+
+@mixin rotate($deg) {
+    -webkit-transform: rotate($deg); /* Chrome, Safari, Opera */
+    -ms-transform: rotate($deg); /* IE 9 */
+    -moz-transform: rotate($deg); /* IE 9 */
+    transform: rotate($deg);
+}
+
+@mixin transform($value) {
+    -webkit-transform: $value; /* Chrome, Safari, Opera */
+    -ms-transform: $value; /* IE 9 */
+    -moz-transform: $value; /* IE 9 */
+    transform: $value;
+}
+
+@mixin skew($deg) {
+    -webkit-transform: skew($deg); /* Chrome, Safari, Opera */
+    -ms-transform: skew($deg); /* IE 9 */
+    -moz-transform: skew($deg); /* IE 9 */
+    transform: skew($deg);
+}
+
+@mixin scale($var) {
+    -ms-transform: scale($var);
+    -moz-transform: scale($var);
+    -webkit-transform: scale($var);
+    transform: scale($var);
+}
+@mixin box-shadow($top, $left, $blur, $color, $inset:"") {
+    -webkit-box-shadow:$top $left $blur $color #{$inset};
+    -moz-box-shadow:$top $left $blur $color #{$inset};
+    box-shadow:$top $left $blur $color #{$inset};
+}
+
+@mixin animationBorder($animationName:animationBorder, $borderColor: #0099a8, $duration: 10s, $boxWidth: 500px, $boxHeight: 300px, $borderSize: 3px, $debug: false) {
+    color: $borderColor;
+
+    @if ($animationName != 'mentors' and $animationName != 'mentorsGreen') {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
+    margin: auto;
+    // box-shadow: inset 0 0 0 1px rgba($borderColor, .5);
+
+    &:before, &:after {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        content: "";
+        z-index: -1;
+        margin: -1;
+        box-shadow: inset 0 0 0 $borderSize;
+        -webkit-animation: $animationName $duration linear infinite;
+        -moz-animation: $animationName $duration linear infinite;
+        -ms-animation: $animationName $duration linear infinite;
+        animation: $animationName $duration linear infinite;
+    }
+
+    &:before {
+        -webkit-animation-delay: $duration * -.5;
+        -moz-animation-delay: $duration * -.5;
+        -ms-animation-delay: $duration * -.5;
+        animation-delay: $duration * -.5;
+    }
+
+    @-webkit-keyframes #{$animationName} {
+      0%, 100% {clip: rect(0px, $boxWidth, $borderSize , 0px); }
+      25% {clip: rect(0px, $borderSize, $boxHeight, 0px); }
+      50% {clip: rect($boxHeight - $borderSize, $boxWidth, $boxWidth, 0px); }
+      75% {clip: rect(0px, $boxWidth, $boxHeight, $boxWidth - $borderSize); }
+    }
+
+    @-moz-keyframes #{$animationName} {
+      0%, 100% {clip: rect(0px, $boxWidth, $borderSize , 0px); }
+      25% {clip: rect(0px, $borderSize, $boxHeight, 0px); }
+      50% {clip: rect($boxHeight - $borderSize, $boxWidth, $boxWidth, 0px); }
+      75% {clip: rect(0px, $boxWidth, $boxHeight, $boxWidth - $borderSize); }
+    }
+
+    @-ms-keyframes #{$animationName} {
+      0%, 100% {clip: rect(0px, $boxWidth, $borderSize , 0px); }
+      25% {clip: rect(0px, $borderSize, $boxHeight, 0px); }
+      50% {clip: rect($boxHeight - $borderSize, $boxWidth, $boxWidth, 0px); }
+      75% {clip: rect(0px, $boxWidth, $boxHeight, $boxWidth - $borderSize); }
+    }
+
+    @keyframes #{$animationName} {
+      0%, 100% {clip: rect(0px, $boxWidth, $borderSize , 0px); }
+      25% {clip: rect(0px, $borderSize, $boxHeight, 0px); }
+      50% {clip: rect($boxHeight - $borderSize, $boxWidth, $boxWidth, 0px); }
+      75% {clip: rect(0px, $boxWidth, $boxHeight, $boxWidth - $borderSize); }
+    }
+
+    // For Debug
+    @if ($debug) {
+        &:hover {
+            &::after,
+            &::before {
+                background-color: rgba(#f00, .3);
+            }
+        }
+    }
+
+}
+
+@mixin grayScale() {
+    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 10+, Firefox on Android */
+    filter: gray; /* IE6-9 */
+    -webkit-filter: grayscale(100%); /* Chrome 19+, Safari 6+, Safari 6+ iOS */
+}
+
+@mixin colorDefault() {
+    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'1 0 0 0 0, 0 1 0 0 0, 0 0 1 0 0, 0 0 0 1 0\'/></filter></svg>#grayscale");
+    -webkit-filter: grayscale(0%);
+}
+@mixin gradient($color1,$color2){
+    background: -moz-linear-gradient(top,  $color1 0%, $color2 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$color1), color-stop(100%,$color2)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  $color1 0%,$color2 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  $color1 0%,$color2 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  $color1 0%,$color2 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  $color1 0%,$color2 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color1', endColorstr='$color2',GradientType=0 ); /* IE6-9 */
+
+}
