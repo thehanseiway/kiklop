@@ -16,11 +16,11 @@ $(document).ready(function(){
 // Right pagination Sliders height
 $(document).ready(function() {
   "use strict"
-  setTimeout(slideImagesHeight, 1);
+  slideImagesHeight();
 });
 function slideImagesHeight() {
   "use strict"
-  var height = $(".main-slider-wrapper").outerHeight() / 4;
+  var height = $("#top-slider").outerHeight() / 4;
   $("header div.sliders").css("height",height);
 }
 
@@ -42,6 +42,7 @@ $(document).ready(function() {
       afterInit: function(){
         var windowHeight = $( window ).outerHeight();
         $(".owl-carousel .owl-item").css("max-height",windowHeight - 96);
+        setTimeout(slideImagesHeight, 1000);
         $(".owl-pagination .owl-page").each(function(indexPage){
           var $owlPage = $(this);
           $(".slider-wrapper .sliders").each(function(indexSlider){
@@ -57,12 +58,17 @@ $(document).ready(function() {
         $(".owl-pagination .owl-page").each(function(indexPage){
           var $owlPage = $(this);
             if($owlPage.hasClass("active")) {
-              $(".slider-wrapper").find(".sliders").eq(indexPage).addClass("active-slide").siblings(".sliders").removeClass("active-slide");
+              $(".slider-wrapper").find(".sliders")
+                                    .eq(indexPage)
+                                      .addClass("active-slide")
+                                        .siblings(".sliders")
+                                         .removeClass("active-slide");
               return false;
             }
         });
       }
   });
+
   $("#twitter-slider").owlCarousel({
       autoPlay: 5000,
       navigationText : ['<i class="fa fa-chevron-circle-left"></i>','<i class="fa fa-chevron-circle-right"></i>'],
@@ -128,7 +134,7 @@ $(document).ready(function() {
 // Animate scroll
 
 // Parallax
-$('.parallax-window').parallax({imageSrc: 'assets/img/parallax/parallax-1.jpg'});
+  //$('.parallax-window').parallax({imageSrc: 'assets/img/parallax/parallax-1.jpg'});
 // Parallax
 
 // Wow 
