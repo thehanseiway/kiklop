@@ -133,16 +133,19 @@ $(document).ready(function() {
 });
 // Animate scroll
 
-// Parallax
-  //$('.parallax-window').parallax({imageSrc: 'assets/img/parallax/parallax-1.jpg'});
-// Parallax
+// Wow 
+  wowSections = new WOW( {
+    boxClass:     'wow',
+    offset:       150,
+    mobile:       true,
+    live:         true
+  })
+  
+  // IE 9 fixes
+  if ( navigator.userAgent.indexOf("MSIE 9.0") < 0) {
+    wowSections.init();
+  }
+  // IE 9 fixes
 
 // Wow 
-wowSections = new WOW( {
-  boxClass:     'wow',
-  offset:       150,
-  mobile:       true,
-  live:         true
-})
-wowSections.init();
-// Wow 
+
