@@ -149,3 +149,13 @@ $(document).ready(function() {
 
 // Wow 
 
+// Parallax
+$(document).ready(function() {
+  $('#kiklopTwitter').parallax({
+    imageSrc: 'assets/img/parallax/parallax-1.jpg',
+    iosFix: true,
+    androidFix: true
+
+  });
+});
+// Parallax
