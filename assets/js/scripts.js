@@ -15,11 +15,11 @@ $(document).ready(function(){
 
 // Right pagination Sliders height
 $(document).ready(function() {
-  "use strict"
+  "use strict";
   slideImagesHeight();
 });
 function slideImagesHeight() {
-  "use strict"
+  "use strict";
   var height = $("#top-slider").outerHeight() / 4;
   $("header div.sliders").css("height",height);
 }
@@ -155,7 +155,6 @@ $(document).ready(function() {
     imageSrc: 'assets/img/parallax/parallax-1.jpg',
     iosFix: true,
     androidFix: true
-
   });
 });
 // Parallax
