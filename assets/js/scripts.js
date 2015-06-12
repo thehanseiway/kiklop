@@ -14,10 +14,6 @@ $(document).ready(function(){
 // Our works image Overlay 
 
 // Right pagination Sliders height
-$(document).ready(function() {
-  "use strict";
-  slideImagesHeight();
-});
 function slideImagesHeight() {
   "use strict";
   var height = $("#top-slider").outerHeight() / 4;
