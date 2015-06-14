@@ -1,2 +1,0 @@
-# kiklop
-kiklop landing page
