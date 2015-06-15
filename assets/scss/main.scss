@@ -724,6 +724,13 @@ header {
 
   .contacts {
     margin-top: 32px;
+    
+  }
+
+  @media screen and (max-width:520px) {
+    .contacts-details p {
+      font-size: 14px;
+    }
   }
 
   .contacts-links a{
